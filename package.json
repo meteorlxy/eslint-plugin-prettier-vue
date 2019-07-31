@@ -1,0 +1,33 @@
+{
+  "name": "eslint-plugin-prettier-vue",
+  "version": "0.0.0",
+  "description": "ESLint plugin for Prettier formatting, which is better for Vue SFC",
+  "homepage": "https://github.com/meteorlxy/eslint-plugin-prettier-vue",
+  "repository": "https://github.com/meteorlxy/eslint-plugin-prettier-vue.git",
+  "author": "meteorlxy <meteor.lxy@foxmail.com>",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint ./lib"
+  },
+  "dependencies": {
+    "@vue/component-compiler-utils": "^3.0.0",
+    "prettier-linter-helpers": "^1.0.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier-vue": "file:.",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "prettier": "^1.18.2"
+  }
+}
