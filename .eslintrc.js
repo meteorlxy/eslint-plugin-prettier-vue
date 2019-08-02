@@ -7,4 +7,12 @@ module.exports = {
     'plugin:vue/recommended',
     'plugin:self/recommended',
   ],
+
+  settings: {
+    'prettier-vue': {
+      customBlocks: {
+        docs: { lang: 'markdown' }
+      }
+    }
+  }
 }

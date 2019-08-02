@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'pascal-case',
+  name: 'custom-blocks',
 
   data: () => ({
     attrOrder: 'v-model',
