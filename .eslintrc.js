@@ -5,6 +5,6 @@ module.exports = {
     'standard',
     'prettier/standard',
     'plugin:vue/recommended',
-    'plugin:prettier-vue/recommended',
+    'plugin:self/recommended',
   ],
 }
