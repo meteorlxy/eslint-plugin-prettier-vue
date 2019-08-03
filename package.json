@@ -11,7 +11,8 @@
   ],
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint ./lib"
+    "lint": "eslint ./lib",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add CHANGELOG.md"
   },
   "husky": {
     "hooks": {
@@ -30,6 +31,7 @@
     "vue-template-compiler": "^2.6.10"
   },
   "devDependencies": {
+    "conventional-changelog-cli": "^2.0.23",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-standard": "^13.0.1",
