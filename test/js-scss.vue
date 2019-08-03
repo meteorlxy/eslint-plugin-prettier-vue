@@ -16,6 +16,8 @@ export default {
 }
 </script>
 
+<style></style>
+
 <style>
 div { color: green }
 </style>

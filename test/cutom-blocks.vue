@@ -28,6 +28,8 @@ const hello = {
 ```
 </docs>
 
+<config></config>
+
 <style>
 div { color: green }
 </style>
