@@ -1,5 +1,8 @@
 # eslint-plugin-prettier-vue
 
+![npm](https://img.shields.io/npm/v/eslint-plugin-prettier-vue)
+![GitHub](https://img.shields.io/github/license/meteorlxy/eslint-plugin-prettier-vue)
+
 > Make prettier work better with [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue) on `.vue` files
 
 - Has the same function as [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier), except `.vue` files (basically, it's a fork of [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)).
