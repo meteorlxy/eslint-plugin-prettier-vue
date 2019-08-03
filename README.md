@@ -1,12 +1,10 @@
 # eslint-plugin-prettier-vue
 
-> Forked from [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier), with some refactor and modifications.
+> Make prettier work better with [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue) on `.vue` files
 
-Make prettier work better with [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue).
-
-With the help of this plugin, you can stop prettier processing the `<template>` block of `.vue` files, so that you can following the [Vue Style Guide](https://vuejs.org/v2/style-guide/) to write your `<template>`.
-
-What's more, this plugin provides the ability to prettier [custom blocks](https://vue-loader.vuejs.org/guide/custom-blocks.html) of particular languages.
+- Has the same function as [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier), except `.vue` files (basically, it's a fork of [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)).
+- Stops `prettier` processing the `<template>` block of `.vue` files, so that you can following the [Vue Style Guide](https://vuejs.org/v2/style-guide/) to write your `<template>`.
+- Provides the ability for `prettier` to process [custom blocks](https://vue-loader.vuejs.org/guide/custom-blocks.html) of `.vue` files.
 
 ## Demo
 
@@ -21,7 +19,12 @@ Works with `<script>`, `<style>` and custom blocks:
 ### Installation
 
 ```sh
-npm install --save-dev eslint-plugin-prettier-vue eslint-plugin-vue eslint-config-prettier eslint prettier
+npm install --save-dev \
+  eslint-plugin-prettier-vue \
+  eslint-plugin-vue \
+  eslint-config-prettier \
+  eslint \
+  prettier
 ```
 
 ### ESLint Config
