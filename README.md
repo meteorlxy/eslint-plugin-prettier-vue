@@ -6,7 +6,13 @@ Make prettier work better with [eslint-plugin-vue](https://github.com/vuejs/esli
 
 With the help of this plugin, you can stop prettier processing the `<template>` block of `.vue` files, so that you can following the [Vue Style Guide](https://vuejs.org/v2/style-guide/) to write your `<template>`.
 
+## Demo
+
 ![demo](https://user-images.githubusercontent.com/18205362/62232051-e31af700-b3f7-11e9-8bd4-bd7805bfbca0.gif)
+
+Works with `<script>`, `<style>` and custom blocks:
+
+![demo-custom-blocks](https://user-images.githubusercontent.com/18205362/62407420-f80bac00-b5ea-11e9-8cd9-77e2e55cb16c.gif)
 
 ## Usage
 
