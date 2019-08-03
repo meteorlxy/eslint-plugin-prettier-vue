@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'custom-blocks',
+  name: 'pascal-case',
 
   data: () => ({
     attrOrder: 'v-model',
@@ -15,3 +15,12 @@ export default {
   }),
 }
 </script>
+
+<style>
+div { color: green }
+</style>
+
+<style lang="scss">
+$text-color: green;
+div { color: $text-color; }
+</style>

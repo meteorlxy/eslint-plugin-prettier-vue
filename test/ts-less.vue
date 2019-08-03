@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'pascal-case',
 
@@ -15,3 +15,12 @@ export default {
   }),
 }
 </script>
+
+<style>
+div { color: green }
+</style>
+
+<style lang="less">
+@text-color: green;
+div { color: @text-color; }
+</style>
