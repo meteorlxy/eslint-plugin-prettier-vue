@@ -17,18 +17,46 @@ export default {
 </script>
 
 <docs>
-# This is a markdown block
+# This is a markdown block and will be prettier
+Because its language is specified in the settings:
+```js
+// .eslintrc.js
+module.exports = {
+  settings: {
+    'prettier-vue': {
+      customBlocks: {
+        docs: { lang: "markdown" }
+      }
+    }
+  }
+}
+```
 ```json
 {"json": "in","markdown":"can","be":"formatted"}
 ```
-```js
-const hello = {
-  custom: 'blocks'
-}
-```
 </docs>
 
-<config></config>
+<no-prettier-block>
+# This is a markdown block and won't be prettier
+Because it is set to `false` settings:
+```js
+// .eslintrc.js
+module.exports = {
+  settings: {
+    'prettier-vue': {
+      customBlocks: {
+        'no-prettier-block': false,
+      },
+    },
+  },
+}
+```
+</no-prettier-block>
+
+<config>
+## This block will be ignored too
+Because it is not listed in the settings.
+</config>
 
 <style>
 div { color: green }

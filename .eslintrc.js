@@ -12,6 +12,7 @@ module.exports = {
     'prettier-vue': {
       customBlocks: {
         docs: { lang: 'markdown' },
+        'no-prettier-block': false,
       },
       usePrettierrc: true,
       fileInfoOptions: {
