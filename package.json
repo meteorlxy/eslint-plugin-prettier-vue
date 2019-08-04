@@ -12,7 +12,8 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint ./lib",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add CHANGELOG.md"
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add CHANGELOG.md",
+    "publish": "git push origin master:master --tags"
   },
   "husky": {
     "hooks": {
