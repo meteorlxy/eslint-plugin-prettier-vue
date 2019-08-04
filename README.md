@@ -53,6 +53,11 @@ module.exports = {
 
         // Treat the `<module>` block as a `.js` file
         module: { lang: 'js' },
+
+        // Ignore `<comments>` block (omit it or set it to `false` to ignore the block)
+        comments: false,
+
+        // Other custom blocks that are not listed here will be ignored, too
       },
 
       // Use prettierrc for prettier options or not (default: `true`)
