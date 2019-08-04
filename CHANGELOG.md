@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v1.0.0...v1.1.0) (2019-08-04)
+
+
+### Features
+
+* ignore custom blocks by default ([a5e4907](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/a5e4907))
+
+
+
 # [1.0.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v0.2.0...v1.0.0) (2019-08-03)
 
 ### Features
