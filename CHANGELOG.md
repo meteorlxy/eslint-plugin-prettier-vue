@@ -1,3 +1,12 @@
+## [1.1.2](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v1.1.1...v1.1.2) (2019-08-05)
+
+
+### Bug Fixes
+
+* move prettier to dependencies ([6797c8c](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/6797c8c))
+
+
+
 ## [1.1.1](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v1.1.0...v1.1.1) (2019-08-05)
 
 
