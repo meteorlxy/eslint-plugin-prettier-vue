@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
+    "prettier": "^1.18.2",
     "prettier-linter-helpers": "^1.0.0",
     "vue-template-compiler": "^2.0.0"
   },
@@ -43,7 +44,6 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.2.3",
     "husky": "^3.0.2",
-    "lint-staged": "^9.2.1",
-    "prettier": "^1.18.2"
+    "lint-staged": "^9.2.1"
   }
 }
