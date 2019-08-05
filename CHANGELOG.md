@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v1.1.0...v1.1.1) (2019-08-05)
+
+
+### Bug Fixes
+
+* restriction of vue-template-compiler version ([a7c20fa](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/a7c20fa))
+
+
+
 # [1.1.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v1.0.0...v1.1.0) (2019-08-04)
 
 
