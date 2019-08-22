@@ -1,3 +1,12 @@
+## [1.1.3](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v1.1.2...v1.1.3) (2019-08-22)
+
+
+### Bug Fixes
+
+* disable deindent option ([a98b58d](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/a98b58d))
+
+
+
 ## [1.1.2](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v1.1.1...v1.1.2) (2019-08-05)
 
 
