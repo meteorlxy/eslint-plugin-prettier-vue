@@ -8,7 +8,7 @@
 
 - Includes all functions of [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier).
 - Provides the ability for `prettier` to process [custom blocks](https://vue-loader.vuejs.org/guide/custom-blocks.html) of Vue SFCs.
-- Options to disable `prettier` to process `<template>`, `<script>` or `<style>` blocks of Vue SFCs.
+- Options to disable `prettier` for `<template>`, `<script>` or `<style>` blocks of Vue SFCs.
 
 ## Demo
 
