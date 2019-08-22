@@ -4,19 +4,17 @@
 [![prettier](https://img.shields.io/badge/code%20style-prettier-blue)](https://github.com/prettier/prettier)
 [![GitHub](https://img.shields.io/github/license/meteorlxy/eslint-plugin-prettier-vue)](https://github.com/meteorlxy/eslint-plugin-prettier-vue/blob/master/LICENSE)
 
-> Make prettier work better with [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue) on `.vue` files
+> Make prettier works better on Vue SFCs
 
-- Has the same function as [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier), except `.vue` files (basically, it's a fork of [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)).
-- Stops `prettier` processing the `<template>` block of `.vue` files, so that you can following the [Vue Style Guide](https://vuejs.org/v2/style-guide/) to write your `<template>`.
-- Provides the ability for `prettier` to process [custom blocks](https://vue-loader.vuejs.org/guide/custom-blocks.html) of `.vue` files.
+- Includes all functions of [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier).
+- Provides the ability for `prettier` to process [custom blocks](https://vue-loader.vuejs.org/guide/custom-blocks.html) of Vue SFCs.
+- Options to disable `prettier` to process `<template>`, `<script>` or `<style>` blocks of Vue SFCs.
 
 ## Demo
 
-![demo](https://user-images.githubusercontent.com/18205362/62232051-e31af700-b3f7-11e9-8bd4-bd7805bfbca0.gif)
+Prettier custom blocks:
 
-Works with `<script>`, `<style>` and custom blocks:
-
-![demo-custom-blocks](https://user-images.githubusercontent.com/18205362/62407420-f80bac00-b5ea-11e9-8cd9-77e2e55cb16c.gif)
+![demo](https://user-images.githubusercontent.com/18205362/63491748-9a33fb00-c4ea-11e9-9f2e-cdb9b1dab8f1.gif)
 
 ## Usage
 
@@ -33,31 +31,61 @@ npm install --save-dev \
 
 ### ESLint Config
 
+__DO NOT__ use `eslint-plugin-prettier` together. This plugin is based on `eslint-plugin-prettier` so you do not need it.
+
 ```js
 // .eslintrc.js
 module.exports = {
   extends: [
     'plugin:vue/recommended',
     'plugin:prettier-vue/recommended',
+    // Do not add `'prettier/vue'` if you don't want to use prettier for `<template>` blocks
+    'prettier/vue',
   ],
 
   settings: {
     'prettier-vue': {
-      // Settings for how to process the custom blocks
-      customBlocks: {
-        // Treat the `<docs>` block as a `.markdown` file
-        docs: { lang: 'markdown' },
+      // Settings for how to process Vue SFC Blocks
+      SFCBlocks: {
+        /**
+         * Use prettier to process `<template>` blocks or not
+         *
+         * If set to `false`, remember not to `extends: ['prettier/vue']`, as you need the rules from `eslint-plugin-vue` to lint `<template>` blocks
+         *
+         * @default true
+         */
+        template: false,
 
-        // Treat the `<config>` block as a `.json` file
-        config: { lang: 'json' },
+        /**
+         * Use prettier to process `<script>` blocks or not
+         *
+         * @default true
+         */
+        script: true,
 
-        // Treat the `<module>` block as a `.js` file
-        module: { lang: 'js' },
+        /**
+         * Use prettier to process `<style>` blocks or not
+         *
+         * @default true
+         */
+        style: true,
 
-        // Ignore `<comments>` block (omit it or set it to `false` to ignore the block)
-        comments: false,
+        // Settings for how to process custom blocks
+        customBlocks: {
+          // Treat the `<docs>` block as a `.markdown` file
+          docs: { lang: 'markdown' },
 
-        // Other custom blocks that are not listed here will be ignored, too
+          // Treat the `<config>` block as a `.json` file
+          config: { lang: 'json' },
+
+          // Treat the `<module>` block as a `.js` file
+          module: { lang: 'js' },
+
+          // Ignore `<comments>` block (omit it or set it to `false` to ignore the block)
+          comments: false,
+
+          // Other custom blocks that are not listed here will be ignored
+        },
       },
 
       // Use prettierrc for prettier options or not (default: `true`)
@@ -72,10 +100,6 @@ module.exports = {
 
         // Process the files in `node_modules` or not (default: `false`)
         withNodeModules: false,
-
-        // Array of plugins (default: `[]`)
-        // @see https://prettier.io/docs/en/plugins.html
-        plugins: ['@prettier/plugin-pug'],
       },
     },
   },
@@ -95,9 +119,6 @@ module.exports = {
   },
 }
 ```
-
-- __DO NOT__ use `eslint-plugin-prettier` together. This plugin is based on `eslint-plugin-prettier` so you do not need it.
-- __DO NOT__ add `extends: ['prettier/vue']`, as you need the rules from `eslint-plugin-vue` to lint the `<template>` block of `.vue` files.
 
 ## LICENSE
 
