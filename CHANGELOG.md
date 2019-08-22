@@ -1,3 +1,20 @@
+# [2.0.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v1.1.3...v2.0.0) (2019-08-22)
+
+
+### Features
+
+* make this plugin more flexible ([e67cffd](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/e67cffd))
+  - ability to process `<template>` block
+  - options to disable prettier for `<template>`, `<script>` and `<style>` blocks
+
+
+### BREAKING CHANGES
+
+* settings for custom blocks migrate from `settings['prettier-vue].customBlocks` to `settings['prettier-vue].SFCBlocks.customBlocks`
+* this plugin will process `<template>` block by default
+
+
+
 ## [1.1.3](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v1.1.2...v1.1.3) (2019-08-22)
 
 
