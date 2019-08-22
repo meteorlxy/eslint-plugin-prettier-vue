@@ -23,6 +23,7 @@ div { color: green }
 </style>
 
 <style lang="scss">
-$text-color: green;
 div { color: $text-color; }
+  p { color: $text-color; }
+    h1 { color: $text-color; }
 </style>

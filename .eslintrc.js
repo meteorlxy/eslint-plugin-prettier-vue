@@ -3,16 +3,22 @@ module.exports = {
 
   extends: [
     'standard',
-    'prettier/standard',
     'plugin:vue/recommended',
     'plugin:self/recommended',
+    'prettier/standard',
+    'prettier/vue',
   ],
 
   settings: {
     'prettier-vue': {
-      customBlocks: {
-        docs: { lang: 'markdown' },
-        'no-prettier-block': false,
+      SFCBlocks: {
+        template: true,
+        script: true,
+        style: true,
+        customBlocks: {
+          docs: { lang: 'markdown' },
+          'no-prettier-block': false,
+        },
       },
       usePrettierrc: true,
       fileInfoOptions: {

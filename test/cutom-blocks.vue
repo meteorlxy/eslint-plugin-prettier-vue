@@ -1,21 +1,3 @@
-<template>
-  <div>
-    <input id="multiple" class="attributes" v-model="attrOrder">
-  </div>
-</template>
-
-<script>
-export default {
-  name: 'pascal-case',
-
-  data: () => ({
-    attrOrder: 'v-model',
-    single: "quote",
-    comma: 'dangle'
-  }),
-}
-</script>
-
 <docs>
 # This is a markdown block and will be prettier
 Because its language is specified in the settings:
@@ -35,6 +17,33 @@ module.exports = {
 {"json": "in","markdown":"can","be":"formatted"}
 ```
 </docs>
+
+<template>
+  <div>
+    <input id="multiple" class="attributes" v-model="attrOrder">
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'pascal-case',
+
+  data: () => ({
+    attrOrder: 'v-model',
+    single: "quote",
+    comma: 'dangle'
+  }),
+}
+</script>
+
+<style>
+div { color: green }
+</style>
+
+<style lang="scss">
+$text-color: green;
+div { color: $text-color; }
+</style>
 
 <no-prettier-block>
 # This is a markdown block and won't be prettier
@@ -57,12 +66,3 @@ module.exports = {
 ## This block will be ignored too
 Because it is not listed in the settings.
 </config>
-
-<style>
-div { color: green }
-</style>
-
-<style lang="scss">
-$text-color: green;
-div { color: $text-color; }
-</style>

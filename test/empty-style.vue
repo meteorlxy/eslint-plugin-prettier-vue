@@ -4,6 +4,4 @@
   </div>
 </template>
 
-<style>
-div { color: green }
-</style>
+<style></style>
