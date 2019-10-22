@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v2.0.0...v2.0.1) (2019-10-22)
+
+
+### Bug Fixes
+
+* add prefix to avoid cache ([d80eaaf](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/d80eaaf))
+
+
+
 # [2.0.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v1.1.3...v2.0.0) (2019-08-22)
 
 
