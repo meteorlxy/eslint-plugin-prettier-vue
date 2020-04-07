@@ -31,7 +31,7 @@ npm install --save-dev \
 
 ### ESLint Config
 
-__DO NOT__ use `eslint-plugin-prettier` together. This plugin is based on `eslint-plugin-prettier` so you do not need it.
+**DO NOT** use `eslint-plugin-prettier` together. This plugin is based on `eslint-plugin-prettier` so you do not need it.
 
 ```js
 // .eslintrc.js
@@ -118,6 +118,14 @@ module.exports = {
     ],
   },
 }
+```
+
+## Using Prettier 1.X
+
+Prettier 2.0.0 introduced some breaking changes. If your porject is using it you should install version `2.0.2` of this package.
+
+```sh
+npm install --save-dev eslint-plugin-prettier-vue@^2.0.2
 ```
 
 ## LICENSE

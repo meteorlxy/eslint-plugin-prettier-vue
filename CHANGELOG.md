@@ -1,3 +1,16 @@
+## [3.0.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v2.0.2...v3.0.0) (2020-04-08)
+
+
+### Features
+
+* Updating the version of Prettier([7759e99](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/7759e99))
+
+
+### BREAKING CHANGES
+
+* Prettier 2.0.0 changes the default options for configuration and introduces some new formatting rules that are not configurable.
+
+
 ## [2.0.2](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v2.0.1...v2.0.2) (2019-10-24)
 
 
