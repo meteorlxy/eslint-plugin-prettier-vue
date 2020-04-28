@@ -27,24 +27,24 @@
     ]
   },
   "dependencies": {
-    "@vue/component-compiler-utils": "^3.0.0",
-    "chalk": "^2.4.2",
+    "@vue/component-compiler-utils": "^3.1.2",
+    "chalk": "^4.0.0",
     "prettier": "^1.18.2",
     "prettier-linter-helpers": "^1.0.0",
     "vue-template-compiler": "^2.0.0"
   },
   "devDependencies": {
-    "conventional-changelog-cli": "^2.0.23",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-config-standard": "^13.0.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^9.1.0",
+    "conventional-changelog-cli": "^2.0.31",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-self": "^1.2.0",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^5.2.3",
-    "husky": "^3.0.2",
-    "lint-staged": "^9.2.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.7"
   }
 }
