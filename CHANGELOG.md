@@ -1,3 +1,12 @@
+## [2.1.1](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v2.1.0...v2.1.1) (2020-07-24)
+
+
+### Bug Fixes
+
+* support vue-indent-script-and-style option (close [#12](https://github.com/meteorlxy/eslint-plugin-prettier-vue/issues/12)) ([ec36426](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/ec364265f132cf9201647ac2440b33c404dfe561))
+
+
+
 # [2.1.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v2.0.2...v2.1.0) (2020-04-28)
 
 
