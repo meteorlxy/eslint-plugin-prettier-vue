@@ -54,6 +54,9 @@ module.exports = {
   // Specify the global whitespace sensitivity for HTML files
   htmlWhitespaceSensitivity: 'css',
 
+  // Whether or not to indent the code inside <script> and <style> tags in Vue files
+  vueIndentScriptAndStyle: false,
+
   // End of line
   endOfLine: 'lf',
 };
