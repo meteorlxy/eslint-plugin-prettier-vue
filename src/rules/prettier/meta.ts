@@ -1,4 +1,6 @@
-module.exports = {
+import type { Rule } from 'eslint';
+
+export const meta: Rule.RuleMetaData = {
   type: 'layout',
 
   docs: {
@@ -89,4 +91,4 @@ module.exports = {
       additionalProperties: true,
     },
   ],
-}
+};

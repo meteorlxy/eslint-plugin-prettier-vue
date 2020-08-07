@@ -4,16 +4,20 @@
   "description": "ESLint plugin for Prettier formatting, which is better for Vue SFC",
   "homepage": "https://github.com/meteorlxy/eslint-plugin-prettier-vue",
   "repository": "https://github.com/meteorlxy/eslint-plugin-prettier-vue.git",
-  "author": "meteorlxy <meteor.lxy@foxmail.com>",
   "license": "MIT",
+  "author": "meteorlxy <meteor.lxy@foxmail.com>",
+  "main": "lib/index.js",
   "files": [
     "lib"
   ],
-  "main": "lib/index.js",
   "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean",
+    "dev": "tsc -b --watch",
     "lint": "eslint ./lib",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add CHANGELOG.md",
-    "publish": "git push origin master:master --tags"
+    "prepublishOnly": "yarn clean && yarn build",
+    "publish": "git push origin master:master --tags",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add CHANGELOG.md"
   },
   "husky": {
     "hooks": {
@@ -21,30 +25,37 @@
     }
   },
   "lint-staged": {
-    "*.{js}": [
-      "eslint --fix",
-      "git add"
-    ]
+    "*.{js,ts}": "eslint --fix",
+    "*.{json,md}": "prettier --write",
+    "package.json": "sort-package-json"
   },
+  "prettier": "@meteorlxy/prettier-config",
   "dependencies": {
-    "@vue/component-compiler-utils": "^3.1.2",
+    "@vue/compiler-sfc": "3.0.0-rc.5",
     "chalk": "^4.0.0",
     "prettier": "^1.18.2 || ^2.0.0",
-    "prettier-linter-helpers": "^1.0.0",
-    "vue-template-compiler": "^2.0.0"
+    "prettier-linter-helpers": "^1.0.0"
   },
   "devDependencies": {
+    "@meteorlxy/eslint-config-prettier-typescript": "^1.0.3",
+    "@meteorlxy/prettier-config": "^1.0.1",
+    "@types/eslint": "^7.2.0",
+    "@types/node": "^14.0.27",
+    "@types/prettier": "^2.0.2",
+    "@types/prettier-linter-helpers": "^1.0.0",
     "conventional-changelog-cli": "^2.0.31",
-    "eslint": "^6.8.0",
+    "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-self": "^1.2.0",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
-    "lint-staged": "^10.1.7"
+    "lint-staged": "^10.2.11",
+    "sort-package-json": "^1.44.0",
+    "typescript": "^3.9.7"
   }
 }

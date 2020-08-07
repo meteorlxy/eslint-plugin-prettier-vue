@@ -1,4 +1,6 @@
-module.exports = {
+import type { Linter } from 'eslint';
+
+export const configs: Record<string, Linter.BaseConfig> = {
   recommended: {
     /**
      * extends `eslint-config-prettier`
@@ -17,4 +19,4 @@ module.exports = {
       'prettier-vue/prettier': 'error',
     },
   },
-}
+};

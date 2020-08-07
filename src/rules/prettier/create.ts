@@ -1,10 +1,34 @@
-const prettier = require('prettier')
-const parseVue = require('./utils/parse-vue')
-const prettierDifferences = require('./utils/prettier-differences')
+import type { Rule } from 'eslint';
+import * as prettier from 'prettier';
+import { prettierDifferences } from './utils/prettier-differences';
+import { parseVue } from './utils/parse-vue';
+import type { SFCBlocksOptions } from './utils/parse-vue';
 
-module.exports = function create(context) {
+export interface PrettierVuePluginOptions {
+  /**
+   * Options of prettier itself
+   */
+  prettierOptions: prettier.Options;
+
+  /**
+   * Use the options in .prettierrc file or not
+   */
+  usePrettierrc: boolean;
+
+  /**
+   * The fileInfoOptions of prettier
+   */
+  fileInfoOptions: prettier.FileInfoOptions;
+
+  /**
+   * Options for how to process vue SFC blocks
+   */
+  SFCBlocksOptions: SFCBlocksOptions;
+}
+
+export const create: Rule.RuleModule['create'] = (context) => {
   // Get the shared settings
-  const sharedSettings = context.settings['prettier-vue'] || {}
+  const sharedSettings = context.settings['prettier-vue'] || {};
 
   // Get the options of this plugin that provided by user
   const pluginOptions = {
@@ -12,67 +36,71 @@ module.exports = function create(context) {
     usePrettierrc: sharedSettings.usePrettierrc !== false,
     fileInfoOptions: sharedSettings.fileInfoOptions || {},
     SFCBlocksOptions: sharedSettings.SFCBlocks || {},
-  }
+  };
 
   // Check if the file is ignored
-  const filepath = context.getFilename()
-  const fileInfoOptions = Object.assign(
-    { ignorePath: '.prettierignore' },
-    pluginOptions.fileInfoOptions
-  )
+  const filepath = context.getFilename();
+  const fileInfoOptions = {
+    resolveConfig: true,
+    ignorePath: '.prettierignore',
+    ...pluginOptions.fileInfoOptions,
+  };
   const { ignored, inferredParser } = prettier.getFileInfo.sync(
     filepath,
     fileInfoOptions
-  )
+  );
 
   if (ignored) {
-    return {}
+    return {};
   }
 
-  // Resolve the config of prettier
-  if (prettier && prettier.clearConfigCache) {
-    prettier.clearConfigCache()
+  // This allows long-running ESLint processes (e.g. vscode-eslint) to
+  // pick up changes to .prettierrc without restarting the editor. This
+  // will invalidate the prettier plugin cache on every file as well which
+  // will make ESLint very slow, so it would probably be a good idea to
+  // find a better way to do this.
+  if (pluginOptions.usePrettierrc && prettier && prettier.clearConfigCache) {
+    prettier.clearConfigCache();
   }
+
   const prettierRcOptions = pluginOptions.usePrettierrc
     ? prettier.resolveConfig.sync(filepath, {
         editorconfig: true,
       })
-    : null
-  const prettierOptions = Object.assign(
-    {},
-    prettierRcOptions,
-    pluginOptions.prettierOptions,
-    { filepath }
-  )
+    : null;
+
+  const prettierOptions = {
+    ...prettierRcOptions,
+    ...pluginOptions.prettierOptions,
+    filepath,
+  };
 
   // Get the source code
-  const source = context.getSourceCode().text
+  const sourceCode = context.getSourceCode().text;
 
   return {
     Program() {
       if (filepath.endsWith('.vue')) {
         // Handle Vue SFC
         const SFCBlocks = parseVue({
-          source,
+          source: sourceCode,
           filepath,
           options: pluginOptions.SFCBlocksOptions,
-        })
+        });
 
         // Run prettier on each of the SFC blocks respectively
         SFCBlocks.forEach(({ source, offset, lang, type }) => {
           // Disguise SFC block as an individual file
-          const fakeFilePath = `${filepath}.${type}.${lang}`
+          const fakeFilePath = `${filepath}.${type}.${lang}`;
 
           // Run prettier on this fake file
           prettierDifferences({
             context,
             source,
-            options: Object.assign({}, prettierOptions, {
-              filepath: fakeFilePath,
-            }),
+            options: { ...prettierOptions, filepath: fakeFilePath },
             offset,
-          })
-        })
+          });
+        });
       } else {
         // ESLint supports processors that let you extract and lint JS
         // fragments within a non-JS language. In the cases where prettier
@@ -94,23 +122,19 @@ module.exports = function create(context) {
         // * Prettier supports parsing the file type
         // * There is an ESLint processor that extracts JavaScript snippets
         //   from the file type.
-        const initialOptions = {}
-        const parserBlockList = [null, 'graphql', 'markdown', 'html']
+        const initialOptions: prettier.Options = {};
+        const parserBlockList = [null, 'graphql', 'markdown', 'html'];
         if (parserBlockList.includes(inferredParser)) {
-          const supportBabelParser = prettier
-            .getSupportInfo()
-            .languages.some(language => language.parsers.includes('babel'))
-
-          initialOptions.parser = supportBabelParser ? 'babel' : 'babylon'
+          initialOptions.parser = 'babel';
         }
 
         // Run prettier on this file
         prettierDifferences({
           context,
-          source,
-          options: Object.assign({}, initialOptions, prettierOptions),
-        })
+          source: sourceCode,
+          options: { ...initialOptions, ...prettierOptions },
+        });
       }
     },
-  }
-}
+  };
+};
