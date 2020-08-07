@@ -1,3 +1,5 @@
+# [3.0.0-alpha.2](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v3.0.0-alpha.1...v3.0.0-alpha.2) (2020-08-07)
+
 # [3.0.0-alpha.1](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v2.1.1...v3.0.0-alpha.1) (2020-08-07)
 
 ### Features
