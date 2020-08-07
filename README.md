@@ -4,7 +4,7 @@
 [![prettier](https://img.shields.io/badge/code%20style-prettier-blue)](https://github.com/prettier/prettier)
 [![GitHub](https://img.shields.io/github/license/meteorlxy/eslint-plugin-prettier-vue)](https://github.com/meteorlxy/eslint-plugin-prettier-vue/blob/master/LICENSE)
 
-> Make prettier works better on Vue SFCs
+> Make prettier works better on Vue 3.0 SFCs
 
 - Includes all functions of [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier).
 - Provides the ability for `prettier` to process [custom blocks](https://vue-loader.vuejs.org/guide/custom-blocks.html) of Vue SFCs.
@@ -22,8 +22,8 @@ Prettier custom blocks:
 
 ```sh
 npm install --save-dev \
-  eslint-plugin-prettier-vue \
-  eslint-plugin-vue \
+  eslint-plugin-prettier-vue@next \
+  eslint-plugin-vue@next \
   eslint-config-prettier \
   eslint \
   prettier
@@ -31,7 +31,7 @@ npm install --save-dev \
 
 ### ESLint Config
 
-__DO NOT__ use `eslint-plugin-prettier` together. This plugin is based on `eslint-plugin-prettier` so you do not need it.
+**DO NOT** use `eslint-plugin-prettier` together. This plugin is based on `eslint-plugin-prettier` so you do not need it.
 
 ```js
 // .eslintrc.js
@@ -117,7 +117,7 @@ module.exports = {
       },
     ],
   },
-}
+};
 ```
 
 ## LICENSE
