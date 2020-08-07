@@ -1,3 +1,7 @@
+__Current branch is mainly for vue 2.0__
+
+__For better vue 3.0 support, check the [next](https://github.com/meteorlxy/eslint-plugin-prettier-vue/tree/next) branch__
+
 # eslint-plugin-prettier-vue
 
 [![npm](https://img.shields.io/npm/v/eslint-plugin-prettier-vue)](https://www.npmjs.com/package/eslint-plugin-prettier-vue)
