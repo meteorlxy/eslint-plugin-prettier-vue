@@ -31,14 +31,16 @@
   },
   "prettier": "@meteorlxy/prettier-config",
   "dependencies": {
-    "@vue/compiler-sfc": "3.0.0-rc.5",
+    "@vue/compiler-sfc": "^3.0.0",
     "chalk": "^4.0.0",
-    "prettier": "^1.18.2 || ^2.0.0",
+    "prettier": "^2.0.0",
     "prettier-linter-helpers": "^1.0.0"
   },
   "devDependencies": {
-    "@meteorlxy/eslint-config-prettier-typescript": "^1.0.3",
-    "@meteorlxy/prettier-config": "^1.0.1",
+    "@meteorlxy/eslint-config": "^1.1.0",
+    "@meteorlxy/eslint-config-prettier": "^1.1.0",
+    "@meteorlxy/eslint-config-prettier-typescript": "^1.0.5",
+    "@meteorlxy/prettier-config": "^1.1.0",
     "@types/eslint": "^7.2.0",
     "@types/node": "^14.0.27",
     "@types/prettier": "^2.0.2",
@@ -46,17 +48,12 @@
     "conventional-changelog-cli": "^2.0.31",
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-self": "^1.2.0",
-    "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^7.0.0-beta.1",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
+    "eslint-plugin-vue": "^7.0.0-beta.4",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
     "rimraf": "^3.0.2",
-    "sort-package-json": "^1.44.0",
-    "typescript": "^3.9.7"
+    "sort-package-json": "^1.46.0",
+    "typescript": "^4.0.3"
   }
 }
