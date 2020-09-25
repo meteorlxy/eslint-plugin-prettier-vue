@@ -1,9 +1,11 @@
 module.exports = {
   root: true,
 
-  extends: ['@meteorlxy/prettier'],
-
   overrides: [
+    {
+      files: ['*.js'],
+      extends: '@meteorlxy/prettier',
+    },
     {
       files: ['*.ts'],
       extends: '@meteorlxy/prettier-typescript',
@@ -29,6 +31,7 @@ module.exports = {
             // trailingComma: 'none',
           },
         ],
+        'import/prefer-default-export': 'off',
       },
     },
   ],
