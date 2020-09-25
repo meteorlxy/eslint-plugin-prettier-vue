@@ -11,7 +11,7 @@ import { showInvisibles } from 'prettier-linter-helpers';
 export const reportInsert = (
   context: Rule.RuleContext,
   offset: number,
-  text: string
+  text: string,
 ): void => {
   const pos = context.getSourceCode().getLocFromIndex(offset);
   const range: AST.Range = [offset, offset];
@@ -35,7 +35,7 @@ export const reportInsert = (
 export const reportDelete = (
   context: Rule.RuleContext,
   offset: number,
-  text: string
+  text: string,
 ): void => {
   const start = context.getSourceCode().getLocFromIndex(offset);
   const end = context.getSourceCode().getLocFromIndex(offset + text.length);
@@ -63,7 +63,7 @@ export const reportReplace = (
   context: Rule.RuleContext,
   offset: number,
   deleteText: string,
-  insertText: string
+  insertText: string,
 ): void => {
   const start = context.getSourceCode().getLocFromIndex(offset);
   const end = context

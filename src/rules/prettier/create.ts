@@ -47,7 +47,7 @@ export const create: Rule.RuleModule['create'] = (context) => {
   };
   const { ignored, inferredParser } = prettier.getFileInfo.sync(
     filepath,
-    fileInfoOptions
+    fileInfoOptions,
   );
 
   if (ignored) {

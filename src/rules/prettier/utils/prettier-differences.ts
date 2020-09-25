@@ -36,8 +36,8 @@ export const prettierDifferences = ({
         chalk.yellow('warning'),
         '[prettier-vue]',
         `No parser could be inferred for "${path.extname(
-          options.filepath || ''
-        )}" format`
+          options.filepath || '',
+        )}" format`,
       );
       return;
     }
@@ -78,14 +78,14 @@ export const prettierDifferences = ({
           reportInsert(
             context,
             difference.offset + offset,
-            difference.insertText!
+            difference.insertText!,
           );
           break;
         case DELETE:
           reportDelete(
             context,
             difference.offset + offset,
-            difference.deleteText!
+            difference.deleteText!,
           );
           break;
         case REPLACE:
@@ -93,7 +93,7 @@ export const prettierDifferences = ({
             context,
             difference.offset + offset,
             difference.deleteText!,
-            difference.insertText!
+            difference.insertText!,
           );
           break;
         default:

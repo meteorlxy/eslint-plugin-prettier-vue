@@ -119,7 +119,7 @@ export const parseVue = ({
     .filter(
       ({ type }) =>
         Object.keys(SFCCustomBlocksOptions).includes(type) &&
-        SFCCustomBlocksOptions[type] !== false
+        SFCCustomBlocksOptions[type] !== false,
     )
     .map((block) => {
       // Resolve language of the SFC custom block
@@ -136,6 +136,6 @@ export const parseVue = ({
 
   // Process all SFC blocks & custom blocks
   return [...SFCBlocks, ...SFCCustomBlocks].map((block) =>
-    processSFCBlock(block)
+    processSFCBlock(block),
   );
 };
