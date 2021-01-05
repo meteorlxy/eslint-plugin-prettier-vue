@@ -23,7 +23,7 @@ Prettier custom blocks:
 ```sh
 npm install --save-dev \
   eslint-plugin-prettier-vue@next \
-  eslint-plugin-vue@next \
+  eslint-plugin-vue \
   eslint-config-prettier \
   eslint \
   prettier
