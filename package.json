@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "tsc -b",
-    "clean": "tsc -b --clean",
+    "clean": "rimraf ./lib *.tsbuildinfo",
     "dev": "tsc -b --watch",
     "lint": "eslint --ext .ts ./src",
     "prepublishOnly": "npm run clean && npm run build",
