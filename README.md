@@ -4,7 +4,7 @@
 [![prettier](https://img.shields.io/badge/code%20style-prettier-blue)](https://github.com/prettier/prettier)
 [![GitHub](https://img.shields.io/github/license/meteorlxy/eslint-plugin-prettier-vue)](https://github.com/meteorlxy/eslint-plugin-prettier-vue/blob/master/LICENSE)
 
-> Make prettier works better on Vue 3.0 SFCs
+> Make prettier works better on Vue SFC
 
 - Includes all functions of [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier).
 - Provides the ability for `prettier` to process [custom blocks](https://vue-loader.vuejs.org/guide/custom-blocks.html) of Vue SFCs.
@@ -22,8 +22,8 @@ Prettier custom blocks:
 
 ```sh
 npm install --save-dev \
-  eslint-plugin-prettier-vue@next \
-  eslint-plugin-vue@next \
+  eslint-plugin-prettier-vue \
+  eslint-plugin-vue \
   eslint-config-prettier \
   eslint \
   prettier
@@ -39,8 +39,7 @@ module.exports = {
   extends: [
     'plugin:vue/recommended',
     'plugin:prettier-vue/recommended',
-    // Do not add `'prettier/vue'` if you don't want to use prettier for `<template>` blocks
-    'prettier/vue',
+    'prettier',
   ],
 
   settings: {
@@ -50,14 +49,18 @@ module.exports = {
         /**
          * Use prettier to process `<template>` blocks or not
          *
-         * If set to `false`, remember not to `extends: ['prettier/vue']`, as you need the rules from `eslint-plugin-vue` to lint `<template>` blocks
+         * If set to `false`, you may need to enable those vue rules that are disabled by `eslint-config-prettier`,
+         * because you need them to lint `<template>` blocks
          *
          * @default true
          */
-        template: false,
+        template: true,
 
         /**
          * Use prettier to process `<script>` blocks or not
+         *
+         * If set to `false`, you may need to enable those rules that are disabled by `eslint-config-prettier`,
+         * because you need them to lint `<script>` blocks
          *
          * @default true
          */

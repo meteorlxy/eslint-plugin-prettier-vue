@@ -1,4 +1,14 @@
-lib/
+# Dist files
+lib
+
+# Node modules
 node_modules/
-*.log
+
+# MacOS Desktop Services Store
+.DS_Store
+
+# Log files
+npm-debug.log*
+
+# Typescript build info
 *.tsbuildinfo

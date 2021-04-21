@@ -11,22 +11,28 @@
     "lib"
   ],
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf lib",
+    "build": "tsc -b",
+    "clean": "tsc -b --clean",
     "dev": "tsc -b --watch",
-    "lint": "eslint ./lib",
-    "prepublishOnly": "yarn clean && yarn build",
+    "lint": "eslint --ext .ts ./src",
+    "prepublishOnly": "npm run clean && npm run build",
     "publish": "git push origin master:master --tags",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add CHANGELOG.md"
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add CHANGELOG.md",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "lint-staged": {
     "*.{js,ts}": "eslint --fix",
-    "*.{json,md}": "prettier --write",
+    "*.{json,md,yml}": "prettier --write",
     "package.json": "sort-package-json"
   },
   "prettier": "@meteorlxy/prettier-config",
@@ -37,23 +43,23 @@
     "prettier-linter-helpers": "^1.0.0"
   },
   "devDependencies": {
-    "@meteorlxy/eslint-config": "^1.1.0",
-    "@meteorlxy/eslint-config-prettier": "^1.1.0",
-    "@meteorlxy/eslint-config-prettier-typescript": "^1.0.5",
-    "@meteorlxy/prettier-config": "^1.1.0",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@meteorlxy/eslint-config-prettier": "^2.0.0",
+    "@meteorlxy/eslint-config-prettier-typescript": "^2.1.0",
+    "@meteorlxy/prettier-config": "^2.0.0",
     "@types/eslint": "^7.2.0",
     "@types/node": "^14.0.27",
     "@types/prettier": "^2.0.2",
     "@types/prettier-linter-helpers": "^1.0.0",
-    "conventional-changelog-cli": "^2.0.31",
-    "eslint": "^7.6.0",
-    "eslint-config-prettier": "^6.11.0",
+    "conventional-changelog-cli": "^2.1.1",
+    "eslint": "^7.24.0",
     "eslint-plugin-self": "^1.2.0",
-    "eslint-plugin-vue": "^7.0.0-beta.4",
-    "husky": "^4.3.0",
-    "lint-staged": "^10.4.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
     "rimraf": "^3.0.2",
-    "sort-package-json": "^1.46.0",
-    "typescript": "^4.0.3"
+    "sort-package-json": "^1.49.0",
+    "typescript": "^4.2.4"
   }
 }

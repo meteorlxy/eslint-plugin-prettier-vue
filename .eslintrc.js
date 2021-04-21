@@ -9,6 +9,9 @@ module.exports = {
     {
       files: ['*.ts'],
       extends: '@meteorlxy/prettier-typescript',
+      parserOptions: {
+        project: ['tsconfig.json'],
+      },
       rules: {
         'no-console': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
@@ -20,7 +23,7 @@ module.exports = {
         '@meteorlxy',
         'plugin:vue/recommended',
         'plugin:self/recommended',
-        'prettier/vue',
+        'prettier',
       ],
       rules: {
         'self/prettier': [

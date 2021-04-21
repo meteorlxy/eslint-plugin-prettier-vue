@@ -7,10 +7,13 @@
   "files.trimTrailingWhitespace": true,
   "eslint.validate": [
     "javascript",
-    {
-      "language": "vue",
-      "autoFix": true
-    }
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
   ],
   "vetur.validation.template": false,
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  }
 }
