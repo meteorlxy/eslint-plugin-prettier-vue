@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/eslint-plugin-prettier-vue)](https://www.npmjs.com/package/eslint-plugin-prettier-vue)
 [![prettier](https://img.shields.io/badge/code%20style-prettier-blue)](https://github.com/prettier/prettier)
-[![GitHub](https://img.shields.io/github/license/meteorlxy/eslint-plugin-prettier-vue)](https://github.com/meteorlxy/eslint-plugin-prettier-vue/blob/master/LICENSE)
+[![GitHub](https://img.shields.io/github/license/meteorlxy/eslint-plugin-prettier-vue)](https://github.com/meteorlxy/eslint-plugin-prettier-vue/blob/main/LICENSE)
 
 > Make prettier works better on Vue SFC
 
@@ -125,4 +125,4 @@ module.exports = {
 
 ## LICENSE
 
-[MIT](https://github.com/meteorlxy/eslint-plugin-prettier-vue/blob/master/LICENSE) &copy; [@meteorlxy](https://github.com/meteorlxy) & [Contributors](https://github.com/meteorlxy/eslint-plugin-prettier-vue/graphs/contributors)
+[MIT](https://github.com/meteorlxy/eslint-plugin-prettier-vue/blob/main/LICENSE) &copy; [@meteorlxy](https://github.com/meteorlxy) & [Contributors](https://github.com/meteorlxy/eslint-plugin-prettier-vue/graphs/contributors)
