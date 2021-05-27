@@ -52,9 +52,10 @@ const processSFCBlock = ({
     // `<template>`, `<script>`, `<style>` blocks should be treated as `.vue` file
     // to make the `vueIndentScriptAndStyle` option of prettier works, so we need
     // to wrap them with their original tags
-    const tagName = type === 'scriptSetup' ? 'script setup' : type;
-    const startingTag = `<${tagName}${lang ? ` lang="${lang}"` : ''}>`;
-    const endingTag = `</${tagName}>\n`;
+    const startingTag = `<${type}${type === 'scriptSetup' ? ' setup' : ''}${
+      lang ? ` lang="${lang}"` : ''
+    }>`;
+    const endingTag = `</${type}>\n`;
 
     const source = `${startingTag}${content}${endingTag}`;
 
