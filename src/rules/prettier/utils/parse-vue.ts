@@ -92,17 +92,20 @@ export const parseVue = ({
   filepath: string;
   options: SFCBlocksOptions;
 }): PrettierVueSFCBlock[] => {
-  const SFCBlocksOptions = {
+  const blocksOptions: Required<
+    Pick<SFCBlocksOptions, 'template' | 'script' | 'style'>
+  > = {
     template: options.template !== false,
     script: options.script !== false,
     style: options.style !== false,
   };
 
-  const SFCCustomBlocksOptions = options.customBlocks || {};
+  const customBlocksOptions: Required<SFCBlocksOptions>['customBlocks'] =
+    options.customBlocks || {};
 
   // Get SFC descriptor by parsing source code
   const {
-    descriptor: { template, script, styles, customBlocks },
+    descriptor: { template, script, scriptSetup, styles, customBlocks },
   } = parse(source, {
     filename: path.basename(filepath),
     // do not add pad
@@ -110,20 +113,20 @@ export const parseVue = ({
   });
 
   // Filter SFC blocks
-  const SFCBlocks = [template, script, ...styles]
+  const SFCBlocks = [template, script, scriptSetup, ...styles]
     .filter(<T>(block: T): block is Exclude<T, null> => block !== null)
-    .filter(({ type }) => SFCBlocksOptions[type]);
+    .filter(({ type }) => blocksOptions[type]);
 
   // Filter SFC custom blocks
   const SFCCustomBlocks = customBlocks
     .filter(
       ({ type }) =>
-        Object.keys(SFCCustomBlocksOptions).includes(type) &&
-        SFCCustomBlocksOptions[type] !== false,
+        Object.keys(customBlocksOptions).includes(type) &&
+        customBlocksOptions[type] !== false,
     )
     .map((block) => {
       // Resolve language of the SFC custom block
-      const customBlockOptions = SFCCustomBlocksOptions[block.type];
+      const customBlockOptions = customBlocksOptions[block.type];
 
       if (typeof block.attrs.lang === 'string') {
         block.lang = block.attrs.lang;
