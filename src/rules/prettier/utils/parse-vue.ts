@@ -48,13 +48,11 @@ const processSFCBlock = ({
   loc,
   type,
 }: SFCBlock): PrettierVueSFCBlock => {
-  if (['template', 'script', 'scriptSetup', 'style'].includes(type)) {
+  if (['template', 'script', 'style'].includes(type)) {
     // `<template>`, `<script>`, `<style>` blocks should be treated as `.vue` file
     // to make the `vueIndentScriptAndStyle` option of prettier works, so we need
     // to wrap them with their original tags
-    const startingTag = `<${type}${type === 'scriptSetup' ? ' setup' : ''}${
-      lang ? ` lang="${lang}"` : ''
-    }>`;
+    const startingTag = `<${type}${lang ? ` lang="${lang}"` : ''}>`;
     const endingTag = `</${type}>\n`;
 
     const source = `${startingTag}${content}${endingTag}`;
@@ -113,8 +111,6 @@ export const parseVue = ({
     // do not add pad
     pad: false,
   });
-
-  console.log(scriptSetup);
 
   // Filter SFC blocks
   const SFCBlocks = [template, script, scriptSetup, ...styles]
