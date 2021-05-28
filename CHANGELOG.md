@@ -1,3 +1,9 @@
+# [3.1.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v3.0.0...v3.1.0) (2021-05-28)
+
+### Features
+
+- support setup script ([#18](https://github.com/meteorlxy/eslint-plugin-prettier-vue/issues/18)) ([49e71f4](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/49e71f494b6ad617cdda290c956ae0dd2305fdbc))
+
 # [3.0.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v3.0.0-alpha.2...v3.0.0) (2021-04-21)
 
 # [3.0.0-alpha.2](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v3.0.0-alpha.1...v3.0.0-alpha.2) (2020-08-07)
