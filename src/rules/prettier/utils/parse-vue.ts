@@ -125,15 +125,15 @@ export const parseVue = ({
         customBlocksOptions[type] !== false,
     )
     .map((block) => {
-      // Resolve language of the SFC custom block
-      const customBlockOptions = customBlocksOptions[block.type];
-
       if (typeof block.attrs.lang === 'string') {
         block.lang = block.attrs.lang;
-      } else if (customBlockOptions !== false) {
+        return block;
+      }
+      // Resolve language of the SFC custom block
+      const customBlockOptions = customBlocksOptions[block.type];
+      if (customBlockOptions) {
         block.lang = customBlockOptions.lang;
       }
-
       return block;
     });
 

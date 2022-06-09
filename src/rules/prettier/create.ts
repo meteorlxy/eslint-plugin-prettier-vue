@@ -1,8 +1,8 @@
 import type { Rule } from 'eslint';
 import * as prettier from 'prettier';
-import { prettierDifferences } from './utils/prettier-differences';
 import { parseVue } from './utils/parse-vue';
 import type { SFCBlocksOptions } from './utils/parse-vue';
+import { prettierDifferences } from './utils/prettier-differences';
 
 export interface PrettierVuePluginOptions {
   /**

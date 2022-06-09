@@ -6,8 +6,7 @@ export const meta: Rule.RuleMetaData = {
   docs: {
     description: 'Make your code prettier',
     recommended: true,
-    url:
-      'https://github.com/meteorlxy/eslint-plugin-prettier-vue#eslint-config',
+    url: 'https://github.com/meteorlxy/eslint-plugin-prettier-vue#eslint-config',
   },
 
   fixable: 'code',

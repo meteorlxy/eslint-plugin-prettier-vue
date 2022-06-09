@@ -1,4 +1,4 @@
-import type { Rule, AST } from 'eslint';
+import type { AST, Rule } from 'eslint';
 import { showInvisibles } from 'prettier-linter-helpers';
 
 /**

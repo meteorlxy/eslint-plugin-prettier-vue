@@ -1,9 +1,9 @@
 import * as path from 'path';
 import * as chalk from 'chalk';
-import type { Rule, AST } from 'eslint';
+import type { AST, Rule } from 'eslint';
 import * as prettier from 'prettier';
 import { generateDifferences } from 'prettier-linter-helpers';
-import { reportInsert, reportDelete, reportReplace } from './report';
+import { reportDelete, reportInsert, reportReplace } from './report';
 
 const { INSERT, DELETE, REPLACE } = generateDifferences;
 
@@ -30,6 +30,10 @@ export const prettierDifferences = ({
   try {
     prettierSource = prettier.format(source, options);
   } catch (err) {
+    if (!(err instanceof Error)) {
+      throw err;
+    }
+
     // UndefinedParserError
     if (err.message.startsWith('No parser could be inferred for file')) {
       console.warn(
@@ -48,7 +52,7 @@ export const prettierDifferences = ({
 
     let message = `Parsing error: ${err.message}`;
 
-    const error = (err as unknown) as {
+    const error = err as unknown as {
       codeFrame: string;
       loc: AST.SourceLocation;
     };
