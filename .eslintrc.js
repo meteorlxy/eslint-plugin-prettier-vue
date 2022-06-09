@@ -22,11 +22,11 @@ module.exports = {
       extends: [
         '@meteorlxy',
         'plugin:vue/recommended',
-        'plugin:self/recommended',
+        'plugin:prettier-vue/recommended',
         'prettier',
       ],
       rules: {
-        'self/prettier': [
+        'prettier-vue/prettier': [
           'error',
           {
             // singleQuote: false,

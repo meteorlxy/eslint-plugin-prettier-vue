@@ -1,33 +1,9 @@
 {
+  "extends": "@meteorlxy/tsconfig/base.json",
   "compilerOptions": {
-    "allowJs": false,
-    "allowUmdGlobalAccess": false,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "alwaysStrict": true,
-    "checkJs": false,
-    "composite": true,
-    "declaration": true,
-    "declarationMap": false,
-    "lib": ["es2018"],
+    "lib": ["ES2020"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "newLine": "lf",
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitUseStrict": false,
-    "noStrictGenericChecks": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "sourceMap": false,
-    "strict": true,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "target": "es2018"
+    "target": "ES2020"
   }
 }

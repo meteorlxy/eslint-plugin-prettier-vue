@@ -5,15 +5,14 @@
   "files.eol": "\n",
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact",
     "vue"
-  ],
-  "vetur.validation.template": false,
-  "[markdown]": {
-    "files.trimTrailingWhitespace": false
-  }
+  ]
 }
