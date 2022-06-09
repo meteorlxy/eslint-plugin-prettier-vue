@@ -1,3 +1,9 @@
+# [4.1.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v4.0.0...v4.1.0) (2022-06-09)
+
+### Features
+
+- update options schema to prettier 2.6 ([fda709d](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/fda709d8cae49434301d6db850e8ede119ef10a8))
+
 # [4.0.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v3.1.0...v4.0.0) (2022-06-09)
 
 ### Build System
