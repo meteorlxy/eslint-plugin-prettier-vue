@@ -31,16 +31,12 @@ npm install --save-dev \
 
 ### ESLint Config
 
-**DO NOT** use `eslint-plugin-prettier` together. This plugin is based on `eslint-plugin-prettier` so you do not need it.
+**DO NOT** use `eslint-plugin-prettier` together. This plugin includes all functionalities of `eslint-plugin-prettier` so you do not need it.
 
 ```js
 // .eslintrc.js
 module.exports = {
-  extends: [
-    'plugin:vue/recommended',
-    'plugin:prettier-vue/recommended',
-    'prettier',
-  ],
+  extends: ['plugin:vue/recommended', 'plugin:prettier-vue/recommended'],
 
   settings: {
     'prettier-vue': {
@@ -126,3 +122,5 @@ module.exports = {
 ## LICENSE
 
 [MIT](https://github.com/meteorlxy/eslint-plugin-prettier-vue/blob/main/LICENSE) &copy; [@meteorlxy](https://github.com/meteorlxy) & [Contributors](https://github.com/meteorlxy/eslint-plugin-prettier-vue/graphs/contributors)
+
+[MIT](https://github.com/prettier/eslint-plugin-prettier/blob/master/LICENSE.md) &copy; [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
