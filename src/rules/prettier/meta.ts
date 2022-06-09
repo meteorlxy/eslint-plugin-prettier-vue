@@ -49,7 +49,7 @@ export const meta: Rule.RuleMetaData = {
         bracketSpacing: {
           type: 'boolean',
         },
-        jsxBracketSameLine: {
+        bracketSameLine: {
           type: 'boolean',
         },
         arrowParens: {
@@ -82,9 +82,19 @@ export const meta: Rule.RuleMetaData = {
           type: 'string',
           enum: ['css', 'strict', 'ignore'],
         },
+        vueIndentScriptAndStyle: {
+          type: 'boolean',
+        },
         endOfLine: {
           type: 'string',
           enum: ['auto', 'lf', 'crlf', 'cr'],
+        },
+        embeddedLanguageFormatting: {
+          type: 'string',
+          enum: ['auto', 'off'],
+        },
+        singleAttributePerLine: {
+          type: 'boolean',
         },
       },
       additionalProperties: true,
