@@ -19,7 +19,7 @@ export const prettierDifferences = ({
   options: prettier.Options;
 }): void => {
   // prettier.format() may throw a SyntaxError if it cannot parse the
-  // source code it is given. Ususally for JS files this isn't a
+  // source code it is given. Usually for JS files this isn't a
   // problem as ESLint will report invalid syntax before trying to
   // pass it to the prettier plugin. However this might be a problem
   // for non-JS languages that are handled by a plugin. Notably Vue
@@ -58,7 +58,7 @@ export const prettierDifferences = ({
     };
 
     // Prettier's message contains a codeframe style preview of the
-    // invalid code and the line/column at which the error occured.
+    // invalid code and the line/column at which the error occurred.
     // ESLint shows those pieces of information elsewhere already so
     // remove them from the message
     if (error.codeFrame) {
