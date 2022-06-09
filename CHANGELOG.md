@@ -1,3 +1,13 @@
+# [4.0.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v3.1.0...v4.0.0) (2022-06-09)
+
+### Build System
+
+- migrate to pnpm and bump dependencies ([897ce8a](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/897ce8ab84099e6d2db8b40267c3d57d2665cf26))
+
+### BREAKING CHANGES
+
+- drop support for node 10 & 12
+
 # [3.1.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v3.0.0...v3.1.0) (2021-05-28)
 
 ### Features
