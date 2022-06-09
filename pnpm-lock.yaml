@@ -5,6 +5,7 @@ specifiers:
   '@commitlint/config-conventional': ^17.0.2
   '@meteorlxy/eslint-config-prettier': ^2.12.0
   '@meteorlxy/eslint-config-prettier-typescript': ^2.13.0
+  '@meteorlxy/eslint-config-typescript-vue': ^2.13.0
   '@meteorlxy/prettier-config': ^2.11.0
   '@meteorlxy/tsconfig': ^2.13.0
   '@types/eslint': ^8.4.3
@@ -36,6 +37,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.0.2
   '@meteorlxy/eslint-config-prettier': 2.12.0_ddjd75dz7x3czaucyvuaamiqdi
   '@meteorlxy/eslint-config-prettier-typescript': 2.13.0_fbjqqrcmu5kf5fxbq7jfq7ql3a
+  '@meteorlxy/eslint-config-typescript-vue': 2.13.0_ud6rd4xtew5bv4yhvkvu24pzm4
   '@meteorlxy/prettier-config': 2.11.0
   '@meteorlxy/tsconfig': 2.13.0
   '@types/eslint': 8.4.3
@@ -339,6 +341,21 @@ packages:
       - supports-color
     dev: true
 
+  /@meteorlxy/eslint-config-typescript-vue/2.13.0_ud6rd4xtew5bv4yhvkvu24pzm4:
+    resolution: {integrity: sha512-v6WEqC/kHDsrcYr13q3M+UTKPM9Ur1i3eYWOp1basiCPWpw5doMsm/PkXXwc0787aJK/87KRKRQcEriCQsut/w==}
+    dependencies:
+      '@meteorlxy/eslint-config-typescript': 2.13.0_ud6rd4xtew5bv4yhvkvu24pzm4
+      '@meteorlxy/eslint-config-vue': 2.13.0_eslint@8.17.0
+    transitivePeerDependencies:
+      - '@typescript-eslint/parser'
+      - eslint
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
+      - eslint-plugin-import
+      - supports-color
+      - typescript
+    dev: true
+
   /@meteorlxy/eslint-config-typescript/2.13.0_ud6rd4xtew5bv4yhvkvu24pzm4:
     resolution: {integrity: sha512-jOWlxlf3NNUqxQ2vox+TnwkJODj8QYR5EtQTMPZIFPUnGIAK29/AemghH1xRoBMrmC4xSb8BtR8DFIFlpJdlyg==}
     dependencies:
@@ -353,6 +370,19 @@ packages:
       - eslint-plugin-import
       - supports-color
       - typescript
+    dev: true
+
+  /@meteorlxy/eslint-config-vue/2.13.0_eslint@8.17.0:
+    resolution: {integrity: sha512-D4jZJsXlpRQlH6EfTj5msgoUL2ZwBR4wNZHIHo1Pczy5TC7Sb4iVgE/5p6tLElawigY0E9zBfBpHNm6DARhNPQ==}
+    dependencies:
+      '@meteorlxy/eslint-config': 2.12.0_eslint@8.17.0
+      eslint-plugin-vue: 9.1.0_eslint@8.17.0
+    transitivePeerDependencies:
+      - '@typescript-eslint/parser'
+      - eslint
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
+      - supports-color
     dev: true
 
   /@meteorlxy/eslint-config/2.12.0_eslint@8.17.0:
@@ -3597,6 +3627,7 @@ packages:
     resolution: {directory: '', type: directory}
     name: eslint-plugin-prettier-vue
     version: 3.1.0
+    engines: {node: '>=14'}
     dependencies:
       '@vue/compiler-sfc': 3.2.37
       chalk: 4.1.2

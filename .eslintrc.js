@@ -19,12 +19,10 @@ module.exports = {
     },
     {
       files: ['*.vue'],
-      extends: [
-        '@meteorlxy',
-        'plugin:vue/recommended',
-        'plugin:prettier-vue/recommended',
-        'prettier',
-      ],
+      extends: ['@meteorlxy/typescript-vue', 'plugin:prettier-vue/recommended'],
+      parserOptions: {
+        project: ['tsconfig.json'],
+      },
       rules: {
         'prettier-vue/prettier': [
           'error',
@@ -34,7 +32,6 @@ module.exports = {
             // trailingComma: 'none',
           },
         ],
-        'import/prefer-default-export': 'off',
       },
     },
   ],
@@ -42,7 +39,7 @@ module.exports = {
   settings: {
     'prettier-vue': {
       SFCBlocks: {
-        template: true,
+        template: false,
         script: true,
         style: true,
         customBlocks: {

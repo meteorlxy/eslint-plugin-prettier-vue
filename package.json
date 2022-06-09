@@ -11,9 +11,9 @@
     "lib"
   ],
   "scripts": {
-    "build": "tsc -b",
+    "build": "tsc -b tsconfig.build.json",
     "clean": "rimraf ./lib *.tsbuildinfo",
-    "dev": "tsc -b --watch",
+    "dev": "tsc -b --watch tsconfig.build.json",
     "lint": "eslint --ext .ts ./src",
     "prepare": "husky install",
     "prepublishOnly": "pnpm clean && pnpm build",
@@ -42,6 +42,7 @@
     "@commitlint/config-conventional": "^17.0.2",
     "@meteorlxy/eslint-config-prettier": "^2.12.0",
     "@meteorlxy/eslint-config-prettier-typescript": "^2.13.0",
+    "@meteorlxy/eslint-config-typescript-vue": "^2.13.0",
     "@meteorlxy/prettier-config": "^2.11.0",
     "@meteorlxy/tsconfig": "^2.13.0",
     "@types/eslint": "^8.4.3",
