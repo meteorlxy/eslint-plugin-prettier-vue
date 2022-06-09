@@ -1,9 +1,3 @@
-<template>
-  <div>
-    <input id="multiple" class="attributes" v-model="attrOrder">
-  </div>
-</template>
-
 <script lang="ts">
 export default {
   name: 'pascal-case',
@@ -15,6 +9,12 @@ export default {
   }),
 }
 </script>
+
+<template>
+  <div>
+    <input id="multiple" class="attributes" v-model="attrOrder">
+  </div>
+</template>
 
 <style>
 div { color: green }
