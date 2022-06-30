@@ -1,3 +1,9 @@
+# [4.2.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v4.1.0...v4.2.0) (2022-06-30)
+
+### Features
+
+- sync some changes from eslint-plugin-prettier ([196a5cf](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/196a5cf619ded469a2a78c64b05387f09ecc726a))
+
 # [4.1.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v4.0.0...v4.1.0) (2022-06-09)
 
 ### Features
