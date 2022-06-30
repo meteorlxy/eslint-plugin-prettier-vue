@@ -38,11 +38,19 @@ export const create: Rule.RuleModule['create'] = (context) => {
     SFCBlocksOptions: sharedSettings.SFCBlocks || {},
   };
 
-  // Check if the file is ignored
   const filepath = context.getFilename();
+
+  const prettierRcOptions = pluginOptions.usePrettierrc
+    ? prettier.resolveConfig.sync(filepath, {
+        editorconfig: true,
+      })
+    : null;
+
   const fileInfoOptions = {
-    resolveConfig: true,
+    resolveConfig: false,
+    withNodeModules: false,
     ignorePath: '.prettierignore',
+    plugins: prettierRcOptions?.plugins ?? null,
     ...pluginOptions.fileInfoOptions,
   };
   const { ignored, inferredParser } = prettier.getFileInfo.sync(
@@ -53,21 +61,6 @@ export const create: Rule.RuleModule['create'] = (context) => {
   if (ignored) {
     return {};
   }
-
-  // This allows long-running ESLint processes (e.g. vscode-eslint) to
-  // pick up changes to .prettierrc without restarting the editor. This
-  // will invalidate the prettier plugin cache on every file as well which
-  // will make ESLint very slow, so it would probably be a good idea to
-  // find a better way to do this.
-  if (pluginOptions.usePrettierrc && prettier && prettier.clearConfigCache) {
-    prettier.clearConfigCache();
-  }
-
-  const prettierRcOptions = pluginOptions.usePrettierrc
-    ? prettier.resolveConfig.sync(filepath, {
-        editorconfig: true,
-      })
-    : null;
 
   const prettierOptions = {
     ...prettierRcOptions,
