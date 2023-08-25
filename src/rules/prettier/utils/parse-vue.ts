@@ -1,15 +1,15 @@
 import * as path from 'path';
-import { parse } from '@vue/compiler-sfc';
 import type { SFCBlock } from '@vue/compiler-sfc';
+import { parse } from '@vue/compiler-sfc';
 
 /**
  * Options for how to process vue SFC blocks
  */
 export interface SFCBlocksOptions {
-  template?: boolean;
+  customBlocks?: Record<string, false | { lang: string }>;
   script?: boolean;
   style?: boolean;
-  customBlocks?: Record<string, false | { lang: string }>;
+  template?: boolean;
 }
 
 /**
@@ -17,9 +17,9 @@ export interface SFCBlocksOptions {
  */
 export interface PrettierVueSFCBlock {
   /**
-   * The source string to be passed to prettier
+   * The language of the source string
    */
-  source: string;
+  lang: string;
 
   /**
    * The offset of source string in the original file
@@ -29,9 +29,9 @@ export interface PrettierVueSFCBlock {
   offset: number;
 
   /**
-   * The language of the source string
+   * The source string to be passed to prettier
    */
-  lang: string;
+  source: string;
 
   /**
    * The type of the SFC block
@@ -70,7 +70,7 @@ const processSFCBlock = ({
   // As we have removed the starting `\n`, the offset of the block should `+ 1`
   const offset = loc.start.offset + 1;
 
-  return { source, offset, lang: lang || 'vue', type };
+  return { source, offset, lang: lang ?? 'vue', type };
 };
 
 /**
@@ -84,13 +84,13 @@ const processSFCBlock = ({
  * @returns {Array<Object>} returns an array of Object to be used by prettier
  */
 export const parseVue = ({
-  source,
   filepath,
   options,
+  source,
 }: {
-  source: string;
   filepath: string;
   options: SFCBlocksOptions;
+  source: string;
 }): PrettierVueSFCBlock[] => {
   const blocksOptions: Required<
     Pick<SFCBlocksOptions, 'template' | 'script' | 'style'>
@@ -101,7 +101,7 @@ export const parseVue = ({
   };
 
   const customBlocksOptions: Required<SFCBlocksOptions>['customBlocks'] =
-    options.customBlocks || {};
+    options.customBlocks ?? {};
 
   // Get SFC descriptor by parsing source code
   const {

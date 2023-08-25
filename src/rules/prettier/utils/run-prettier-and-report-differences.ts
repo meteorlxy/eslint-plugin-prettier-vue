@@ -1,23 +1,29 @@
 import * as path from 'path';
-import * as chalk from 'chalk';
 import type { AST, Rule } from 'eslint';
-import * as prettier from 'prettier';
+import * as picocolors from 'picocolors';
+import type { Options } from 'prettier';
 import { generateDifferences } from 'prettier-linter-helpers';
-import { reportDelete, reportInsert, reportReplace } from './report';
+import { createSyncFn } from 'synckit'
+import type { PrettierFormatFn } from '../workers/prettier-format'
+import { reportDifference } from './report-difference';
 
-const { INSERT, DELETE, REPLACE } = generateDifferences;
+let prettierFormat: PrettierFormatFn | undefined;
 
-export const prettierDifferences = ({
+export const runPrettierAndReportDifferences = ({
   context,
-  source,
-  options,
   offset = 0,
+  options,
+  source,
 }: {
   context: Rule.RuleContext;
-  source: string;
   offset?: number;
-  options: prettier.Options;
+  options: Options;
+  source: string;
 }): void => {
+  if (!prettierFormat) {
+    prettierFormat = createSyncFn(require.resolve('../workers/prettier-format'))
+  }
+
   // prettier.format() may throw a SyntaxError if it cannot parse the
   // source code it is given. Usually for JS files this isn't a
   // problem as ESLint will report invalid syntax before trying to
@@ -26,9 +32,9 @@ export const prettierDifferences = ({
   // files throw an error if they contain unclosed elements, such as
   // `<template><div></template>. In this case report an error at the
   // point at which parsing failed.
-  let prettierSource;
+  let prettierSource: string;
   try {
-    prettierSource = prettier.format(source, options);
+    prettierSource = prettierFormat(source, options);
   } catch (err) {
     if (!(err instanceof Error)) {
       throw err;
@@ -37,10 +43,10 @@ export const prettierDifferences = ({
     // UndefinedParserError
     if (err.message.startsWith('No parser could be inferred for file')) {
       console.warn(
-        chalk.yellow('warning'),
+        picocolors.yellow('warning'),
         '[prettier-vue]',
         `No parser could be inferred for "${path.extname(
-          options.filepath || '',
+          options.filepath ?? '',
         )}" format`,
       );
       return;
@@ -69,39 +75,10 @@ export const prettierDifferences = ({
     }
 
     context.report({ message, loc: error.loc });
-
     return;
   }
 
   if (source !== prettierSource) {
-    const differences = generateDifferences(source, prettierSource);
-
-    differences.forEach((difference) => {
-      switch (difference.operation) {
-        case INSERT:
-          reportInsert(
-            context,
-            difference.offset + offset,
-            difference.insertText!,
-          );
-          break;
-        case DELETE:
-          reportDelete(
-            context,
-            difference.offset + offset,
-            difference.deleteText!,
-          );
-          break;
-        case REPLACE:
-          reportReplace(
-            context,
-            difference.offset + offset,
-            difference.deleteText!,
-            difference.insertText!,
-          );
-          break;
-        default:
-      }
-    });
+    generateDifferences(source, prettierSource).forEach((difference) => reportDifference(context, difference, difference.offset + offset));
   }
 };

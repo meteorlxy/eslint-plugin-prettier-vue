@@ -1,4 +1,7 @@
 import type { Rule } from 'eslint';
+import { generateDifferences } from 'prettier-linter-helpers';
+
+const { INSERT, DELETE, REPLACE } = generateDifferences;
 
 export const meta: Rule.RuleMetaData = {
   type: 'layout',
@@ -10,6 +13,12 @@ export const meta: Rule.RuleMetaData = {
   },
 
   fixable: 'code',
+
+  messages: {
+    [INSERT]: 'Insert `{{ insertText }}`',
+    [DELETE]: 'Delete `{{ deleteText }}`',
+    [REPLACE]: 'Replace `{{ deleteText }}` with `{{ insertText }}`',
+  },
 
   schema: [
     /**

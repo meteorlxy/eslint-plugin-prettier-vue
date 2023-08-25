@@ -14,5 +14,6 @@
     "typescript",
     "typescriptreact",
     "vue"
-  ]
+  ],
+  "cSpell.words": ["invisibles"]
 }
