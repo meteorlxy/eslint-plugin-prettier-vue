@@ -1,3 +1,17 @@
+# [5.0.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v4.2.0...v5.0.0) (2023-08-25)
+
+### Build System
+
+- update build target to node 16 ([6599897](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/659989780f42232667b5e4467144d8c1dc41413e))
+
+### Features
+
+- upgrade to prettier v3 (close [#35](https://github.com/meteorlxy/eslint-plugin-prettier-vue/issues/35)) ([453229a](https://github.com/meteorlxy/eslint-plugin-prettier-vue/commit/453229ae899c8d09e33e9052e4c7eff3c1a62d40))
+
+### BREAKING CHANGES
+
+- drop support for node 14
+
 # [4.2.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v4.1.0...v4.2.0) (2022-06-30)
 
 ### Features
