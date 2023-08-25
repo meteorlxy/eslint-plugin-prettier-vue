@@ -10,6 +10,7 @@
 
 ### BREAKING CHANGES
 
+- upgrade to prettier v3
 - drop support for node 14
 
 # [4.2.0](https://github.com/meteorlxy/eslint-plugin-prettier-vue/compare/v4.1.0...v4.2.0) (2022-06-30)
