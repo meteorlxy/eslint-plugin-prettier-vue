@@ -4,8 +4,6 @@ import { createSyncFn } from 'synckit'
 import type { PrettierVuePluginOptions } from './types';
 import { parseVue } from './utils/parse-vue';
 import { runPrettierAndReportDifferences } from './utils/run-prettier-and-report-differences';
-// import { resolvePrettierOptions } from './utils/resolve-prettier-options';
-// import { resolvePrettierFileInfo } from './utils/resolve-prettier-file-info';
 import type { ResolvePrettierOptionsAndFileInfoFn } from './workers/resolve-prettier-options-and-file-info';
 
 let resolvePrettierOptionsAndFileInfo: ResolvePrettierOptionsAndFileInfoFn | undefined;
@@ -32,17 +30,6 @@ export const create: Rule.RuleModule['create'] = (context) => {
   const sourceCode = context.sourceCode.text;
 
   // resolve prettier options and file info
-  // const prettierOptions = await resolvePrettierOptions({
-  //   filepath,
-  //   physicalFilepath,
-  //   pluginOptions,
-  // });
-  // const { ignored, inferredParser } = await resolvePrettierFileInfo({
-  //   physicalFilepath,
-  //   pluginOptions,
-  //   prettierOptions,
-  // });
-
   if (!resolvePrettierOptionsAndFileInfo) {
     resolvePrettierOptionsAndFileInfo = createSyncFn(
       require.resolve('./workers/resolve-prettier-options-and-file-info'),
