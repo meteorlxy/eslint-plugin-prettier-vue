@@ -15,6 +15,7 @@
     "clean": "rimraf ./lib *.tsbuildinfo",
     "dev": "tsc -b --watch tsconfig.build.json",
     "lint": "eslint --ext .ts ./src",
+    "lint:test": "eslint --ext .vue ./test",
     "prepare": "husky install",
     "prepublishOnly": "pnpm clean && pnpm build && pnpm lint",
     "publish": "git push origin main --tags",
