@@ -1,10 +1,10 @@
 {
   "extends": "@meteorlxy/tsconfig/base.json",
   "compilerOptions": {
-    "lib": ["ES2021"],
+    "lib": ["ES2022"],
     "module": "CommonJS",
-    "moduleResolution": "Node",
-    "target": "ES2021",
+    "moduleResolution": "Node10",
+    "target": "ES2022",
     "verbatimModuleSyntax": false // enable when migrating to esm
   }
 }
